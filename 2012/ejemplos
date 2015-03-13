@@ -1,0 +1,55 @@
+#!/usr/bin/perl -w
+
+# Always be safe
+use strict;
+use warnings;
+
+# Use the module
+use Mail::IMAPClient;
+
+my $imap = Mail::IMAPClient->new(
+Server   => 'imap.gmail.com',
+ Port     => 993,
+ Ssl      => 1,
+ User     => 'user@foo.com',
+ Password => '123456',
+)
+       # module uses eval, so we use $@ instead of $!
+  or die "new(): $@";
+
+print "I'm authenticated\n" if $imap->IsAuthenticated();
+
+ foreach my $box qw( INBOX ) {
+#   # Which file are the messages going into
+print "# Which file are the messages going into\n";
+   my $file = "FOOINBOX";
+
+   # Select the mailbox to get messages from
+print "   # Select the mailbox to get messages from\n";
+   $imap->select($box)
+        or die "IMAP Select Error: $!";
+
+print "  # Store each message as an array element\n";
+   my @msgs = $imap->search('ALL')
+        or die "Couldn't get all messages\n";
+
+print "   # Loop over the messages and store in file\n";
+   foreach my $msg (@msgs) {
+print "    # Pipe msgs through 'formail' so they are stored properly\n";
+     open my $pipe, ">> $file"
+       or die("Formail Open Pipe Error: $!");
+
+print "     # Send msg through file pipe\n";
+     $imap->message_to_file($pipe, $msg);
+
+print "     # Close the messgae pipe\n";
+     close $pipe
+       or die("Formail Close Pipe Error: $!");
+   }
+
+print "   # Close the folder\n";
+   $imap->close($box);
+}
+
+print " # We're all done with IMAP here\n";
+ $imap->logout();
