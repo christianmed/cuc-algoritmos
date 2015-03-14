@@ -2,8 +2,9 @@
 .codio
 
 #==--SublimeText--========================
-.sublime-project
-.sublime-workspace
 /*.sublime-project
 *.sublime-workspace
-/Sbl-Project
+Sbl-Project/
+
+#==--Git--================================
+.gitignore
