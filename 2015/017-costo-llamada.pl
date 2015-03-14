@@ -40,13 +40,18 @@ print "==========-----------------------==========\n\n";
 print "Duracion de Llamada en Minutos: ";
 chomp($min=<STDIN>);
 
+#Si min es menor o igual a 5
 if($min<=5){
+	#se multiplica cada min por 10
     $Total=$min*10;
 }
+#Si min es mayor a 5
 else{
-    $Total=50+(($min-5)*2);
+	#A min se le restan 5, el resultado se multiplica por dos y se le suman 50 de los primeros 5 min
+    $Total=(($min-5)*2)+50;
 }
 
+#Se muestra el resultado por pantalla
 print "\nDEBE PAGAR Bs. $Total,00.";
 
 #Mensaje de despedida
