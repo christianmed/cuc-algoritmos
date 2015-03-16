@@ -13,6 +13,9 @@
 #
 #######################################################
 
+#Limpiar pantalla
+print `clear`;
+
 #Definicion de variables
 
 
