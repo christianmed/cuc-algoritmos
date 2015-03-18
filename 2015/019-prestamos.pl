@@ -71,7 +71,7 @@ else{
 $Mpc=($pres+($pres*$int))/$Nc;
 
 print "\n- N° de Cuotas a Pagar: $Nc\n";
-print "\n- Monto de Cada Cuota: $Mpc\$";
+print "\n- Monto de Cada Cuota: Bs. $Mpc";
 
 #Mensaje de despedida
 print "\n\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
