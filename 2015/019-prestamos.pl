@@ -33,10 +33,10 @@
 print `clear`;
 
 #Definicion de variables
-my $pres=0;
-my $Nc=0;
-my $int=0.1;
-my $Mpc=0;
+my $pres=0;         #prestamo
+my $Nc=0;           #numero de cuotas
+my $int=0.1;        #intereses 10%
+my $Mpc=0;          #monto de cada cuota
 
 #Mensaje de Bienvenida
 print "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
@@ -52,24 +52,32 @@ print "==========-----------------------==========\n\n";
 print "Indique el monto del Prestamo: ";
 chomp($pres=<STDIN>);
 
+#Empezamos las comprobaciones
 if($pres<4000){
+    #si prestamo es menos de 4000 el interes es del 12%
     $int=0.12;
     if($pres<1000){
+        #si prestamos es menor a 1000 paga en una cuota
         $Nc=1;
     }
     elsif($pres>=2000 && $pres<=3000){
+        #si prestamos esta entre 2000 y 3000 paga en dos cuotas
         $Nc=2;
     }
 }
 elsif($pres>5000){
+    #si prestamos es mayor a 5000 paga en tres cuotas
     $Nc=3;
 }
 else{
+    #en casos distintos a los anteriores paga en cinco cuotas
     $Nc=5;
 }
 
+#realizamos el calculo
 $Mpc=($pres+($pres*$int))/$Nc;
 
+#mostramos los resultados por pantalla
 print "\n- N° de Cuotas a Pagar: $Nc\n";
 print "\n- Monto de Cada Cuota: Bs. $Mpc";
 
