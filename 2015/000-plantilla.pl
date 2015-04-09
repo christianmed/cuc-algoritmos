@@ -1,11 +1,12 @@
 #!/usr/bin/perl
 
-########################################################
-#Nombre:    
-#Fecha:     00/00/2015                                 #
-#Versión:   0.1                                        #
-#By:        Christian Medina                           #
-########################################################
+#######################################################
+#Nombre:        
+#Fecha:         05/03/2015                            #
+#Versión:       0.1                                   #
+#By:            Christian Medina                      #
+#Modificado:    00/00/201                            #
+#######################################################
 
 #######################################################
 #                     Descripción                     #
@@ -13,35 +14,29 @@
 #
 #######################################################
 
-#Funcion Mensaje de Bienvenida
+#Función Mensaje de Bienvenida
 sub MenBienvenida{
-    print "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-    print "\t\tBienvenidos\n";
-    print "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
-    
-    print "==========-----------------------==========";
-    print "\n \n";
+    #Limpiamos la pantalla
+    print `clear`;
+    print "\n==========-----------------------==========\n";
+    print "\t\tBIENVENIDOS\n";
+    print "==========-----------------------==========\n";
+    print "==========-----------------------==========\n";
+    print "        DETERMINAR EL FACTORIAL DE N\n";
     print "==========-----------------------==========\n\n";
 }
 
 #Funcion Mensaje de despedida
 sub MenDespedida{
-    print "\n\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-    print "\t\t  Adios!!\n";
-    print "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
+    print "\n\n==========-----------------------==========\n";
+    print "\t\t  ADIOS!!\n";
+    print "==========-----------------------==========\n\n";
 }
-
-#Limpiar pantalla
-print `clear`;
 
 #Llamamos a la funcion con el mensaje de bienvenida
 MenBienvenida();
 
 #Definicion de variables
-
-
-
-#Solicitamos el ingreso del numero por teclado
 
 
 
