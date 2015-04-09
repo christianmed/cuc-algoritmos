@@ -33,6 +33,10 @@ sub MenDespedida{
     print "==========-----------------------==========\n\n";
 }
 
+###############################################
+#####           CUERPO DEL PROGRAMA
+###############################################
+
 #Llamamos a la funcion con el mensaje de bienvenida
 MenBienvenida();
 

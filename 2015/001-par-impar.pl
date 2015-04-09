@@ -41,7 +41,9 @@ sub Error{
     <STDIN>;
 }
 
-##########==================CUERPO DEL PROGRAMA
+###############################################
+#####          CUERPO DEL PROGRAMA          ###
+###############################################
 
 do{
     #Mostramos el mensaje de bienvenida
@@ -52,17 +54,12 @@ do{
     chomp($num=<STDIN>);
     
     #Comprobamos que se haya introducido un número
-    if(!looks_like_number($num)){
-        #Se muestra un mensaje de error
-        Error();
-    }
-    #Comprobamos que el número sea >= 0
-    elsif($num < 0){
+    if($num < 0 || !looks_like_number($num)){
         #Se muestra un mensaje de error
         Error();
     }
 
-}while($num < 0 || (!looks_like_number($num)));
+}while($num < 0 || !looks_like_number($num));
 
 #verificamos si el número introducido es = 0
 if ($num==0){

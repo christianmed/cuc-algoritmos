@@ -51,6 +51,9 @@ sub IntroNum{
     return $num;
 }
 
+###############################################
+#####          CUERPO DEL PROGRAMA          ###
+###############################################
 do{
     #Llamamos a la función con el mensaje de bienvenida
     MenBienvenida();
