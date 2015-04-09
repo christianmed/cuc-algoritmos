@@ -44,7 +44,7 @@ sub Error{
     <STDIN>;
 }
 
-#Función para solicitar un valor
+#Función para solicitar un número por teclado
 sub IntroNum{
     print "Introduzca un Numero: ";
     chomp(my $num=<STDIN>);
