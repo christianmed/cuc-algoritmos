@@ -34,7 +34,7 @@ sub MenDespedida{
 }
 
 ###############################################
-#####           CUERPO DEL PROGRAMA
+#####          CUERPO DEL PROGRAMA          ###
 ###############################################
 
 #Llamamos a la funcion con el mensaje de bienvenida
