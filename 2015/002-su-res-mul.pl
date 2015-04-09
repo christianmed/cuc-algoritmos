@@ -5,7 +5,7 @@
 #Fecha:         05/03/2015                            #
 #Versión:       0.1                                   #
 #By:            Christian Medina                      #
-#Modificado:    09/04/2015                            #
+#Modificado:    09/04/2015 - v0.2                     #
 #######################################################
 
 #######################################################
@@ -38,7 +38,7 @@ sub MenDespedida{
     print "==========-----------------------==========\n\n";
 }
 
-#Funcíon con emsnaje de error
+#Función con mensaje de error
 sub Error{
     print "\nERROR ---> Pulse una tecla para continuar...";
     <STDIN>;
