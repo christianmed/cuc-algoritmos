@@ -1,95 +1,93 @@
 #!/usr/bin/perl
 
 #######################################################
-#Nombre:    005-mayor-3n.pl                           #
-#Fecha:     05/03/2015                                #
-#Versión:   0.1                                       #
-#By:        Christian Medina                          #
+#Nombre:        005-mayor-3n.pl                       #
+#Fecha:         05/03/2015                            #
+#Versión:       0.1                                   #
+#By:            Christian Medina                      #
+#Modificado:    09/04/2015                            #
 #######################################################
 
 #######################################################
 #                     Descripción                     #
 #                                                     #
-#programa que solicita 3 números por teclado y cal-   #
-#cula el mayor, el intermedio y el menor mostrándo-   #
-#los por pantalla en el orden de introducción, de     #
-#mayor a menor y de menor a mayor.                    #
+# programa que solicita 3 números por teclado y cal-  #
+# cula el mayor, el intermedio y el menor mostrándo-  #
+# los por pantalla en el orden de introducción, de    #
+# mayor a menor y de menor a mayor.                   #
 #                                                     #
-#  **Se comprueba que los números sean diferentes**   #
 #######################################################
 
-#Mensaje de Bienvenida
-print "\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-print "\t\tBIENVENIDOS\n";
-print "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
+use Scalar::Util 'looks_like_number';
 
-#Solicitamos el ingreso de los números por teclado
-print "Introduzca el Valor de A: ";
-chomp($a=<STDIN>);
-#Comprobamos que 2do número sea diferente del 1er número
-do{
-    print "Introduzca el Valor de B: ";
-    chomp($b=<STDIN>);
+#Función Mensaje de Bienvenida
+sub MenBienvenida{
+    #Limpiamos la pantalla
+    print `clear`;
+    print "\n==========-----------------------==========\n";
+    print "\t\tBIENVENIDOS\n";
+    print "==========-----------------------==========\n";
+    print "==========-----------------------==========\n";
+    print "  DETERMINAR MAYOR Y MENOR DE TRES NUMEROS\n";
+    print "==========-----------------------==========\n\n";
 }
-while ($b == $a);
-#Comprobamos que 3er número sea diferente del 1er y 2do número
-do{
-    print "Introduzca el Valor de C: ";
-    chomp($c=<STDIN>);
+
+#Funcion Mensaje de despedida
+sub MenDespedida{
+    print "\n\n==========-----------------------==========\n";
+    print "\t\t  ADIOS!!\n";
+    print "==========-----------------------==========\n\n";
 }
-while ($c == $a || $c == $b);
+
+#Función con mensaje de error
+sub Error{
+    print "\nERROR ---> Pulse una tecla para continuar...";
+    <STDIN>;
+}
+
+#Función para solicitar N números por teclado
+sub IntroNum{
+    
+    my $n = shift;
+    
+    #Llamamos a la función con el mensaje de bienvenida
+    MenBienvenida();
+    
+    print "Introduzca el valor del Numero ", $i+1, ": ";
+    chomp(my $num = <STDIN>);
+        
+    unless(looks_like_number($num)){
+        Error();
+        $num = IntroNum();
+    }
+    return $num;
+}
+
+###############################################
+#####          CUERPO DEL PROGRAMA          ###
+###############################################
+
+#Ciclo para solicitar el valor de los números al usuario y guardarlos en una lista
+for($i=0; $i<3; $i++){
+    #Pasamos el indice de los elementos como parámetro para saber de qué número se trata
+    $num[$i] = IntroNum($i);
+    #Una vez devuelto el valor lo metemos al final de la lista
+    push (@lista, $num[$i]);
+}
+
+#Llamamos a la función con el mensaje de bienvenida
+MenBienvenida();
 
 #Mostrar los valores tal y como fueron introducidos
-print "\nLos Valores introducidos son:\n\n $a\n $b\n $c\n";
+print "Los Valores introducidos son: @lista\n\n";
 
-#Comprobación del mayor de los números
-if ($a>$b && $a>$c) {
-    #Si A es el mayor se guarda su valor en la variable $mayor
-    $mayor = $a;
-    #Comprobamos el número intermedio y el menor y se guardan sus valos en las variables $medio y $menor
-    if ($b>$c) {
-        $medio = $b;
-        $menor = $c;
-    }
-    else {
-        $medio = $c;
-        $menor = $b;
-    }
-}
-if ($b>$a && $b>$c) {
-    #Si B es el mayor se guarda su valor en la variable $mayor
-    $mayor = $b;
-    #Comprobamos el número intermedio y el menor y se guardan sus valos en las variables $medio y $menor
-    if ($a>$c) {
-        $medio = $a;
-        $menor = $c;
-    }
-    else {
-        $medio = $c;
-        $menor = $a;
-    }
-}
-if ($c>$a && $c>$b) {
-    #Si C es el mayor se guarda su valor en la variable $mayor
-    $mayor = $c;
-    #Comprobamos el número intermedio y el menor y se guardan sus valos en las variables $medio y $menor
-    if ($a>$b) {
-        $medio = $a;
-        $menor = $b;
-    }
-    else {
-        $medio = $b;
-        $menor = $a;
-    }
-}
+#Ordenamos la lista de menor a mayor y mostramos los valores por pantalla
+@lista = sort {$a<=>$b} @lista;
+print "Ordenados de Menor a Mayor: @lista\n\n";
 
-#Mostramos por pantalla los números de mayor a menor
-print "\nValores de Mayor a Menor:\n\n $mayor\n $medio\n $menor\n";
+#Ordenamos la lista de mayor a menor y mostramos los valores por pantalla
+@lista = sort {$b<=>$a} @lista;
+print "Ordenados de Mayor a Menor: @lista";
 
-#mostramos por pantalla los numerós de menor a mayor
-print "\nValores de Menor a Mayor:\n\n $menor\n $medio\n $mayor";
-
-#Mensaje de despedida
-print "\n\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n";
-print "\t\t  Adios!!\n";
-print "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
+#Llamamos a la funcion con el mensaje de despedida
+MenDespedida();
