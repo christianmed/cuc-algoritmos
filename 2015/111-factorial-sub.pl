@@ -15,6 +15,8 @@
 # 0) a través de una función                          #
 #######################################################
 
+use Scalar::Util 'looks_like_number';
+
 #Función Mensaje de Bienvenida
 sub MenBienvenida{
     #Limpiamos la pantalla
@@ -35,34 +37,44 @@ sub MenDespedida{
 }
 
 #Función para solitar un valor
-sub SolicitarNumero{
+sub IntroNum{
+    #Mostramos el mensaje de bienvenida
+    MenBienvenida();
+    
+    #Solicitamos el valor de N al usuario (N debe ser >= 0)
     print "Introduzca un Numero Entero Positivo: ";
     chomp($num=<STDIN>);
-    return $num;
+    
+    if(!looks_like_number($num) || $num < 0){
+        print "\nERROR ---> No Introdujo un Numero >= 0\n\n";
+        print "Pulse una tecla para continuar..."; <STDIN>;
+        $num = IntroNum();
+    }
+    else{
+        return $num;
+    }
 }
 
 #Función para determinar el factorial de un numero
 sub Factorial{
     my $n = shift;
-    #Comprobamos si N es igual a 0 o a 1 ya que en ambos casos el factorial es 1
-    if($n < 2){
-        return 1;
+    #Comprobamos si N es menor a 3
+    if($n < 3){
+        #Si N es igual a 2 devolvemos su valor y si es igual a 0 o a 1 devolvemos 1 ya que es el valor que corresponde
+        $n == 2 ? return $n : return 1;
     }
-    #Si N es diferente de o y de 1 hacemos el cálculo
+    #Si N es mayor a 2 hacemos el cálculo
     else{
         return $n*Factorial($n-1);
     }
 }
 
-#=================----->Cuerpo del Programa
+###############################################
+#####          CUERPO DEL PROGRAMA          ###
+###############################################
 
-#Solicitamos el valor de N al usuario (N debe ser >=0)
-do{
-    #Mostramos el mensaje de bienvenida
-    MenBienvenida();
-    #Solicitamos el valor de N al usuario
-    $n = SolicitarNumero();
-}while($n < 0);
+#Solicitamos el valor de N al usuario
+$n = IntroNum();
 
 #Pasamos el valor de N a la funcion Factorial y mostramos el resultado
 print "\n!$n = ", Factorial($n);
