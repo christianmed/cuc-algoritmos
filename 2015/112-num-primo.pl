@@ -67,31 +67,31 @@ sub Error{
 
 use Scalar::Util 'looks_like_number';
 
-#Llamaos a la función IntroNum() y e valor devuelto lo guardamos en la variable $num
+#Llamamos a la función IntroNum() y el valor devuelto lo guardamos en la variable $num
 $num = IntroNum();
 
 #Si $num es igual a 0 o a 1
-if($num == 0 || $num == 1){
+if($num < 2){
 	#Mostramos el siguiente mensaje
 	print "\n$num No es Primo!";
 }
-#Si $num es igual a 2
-elsif($num == 2){
-	#Mostramos el siguiente mensaje
-	print "\n2 Es Primo!";
-}
-#Si $num es mayor a 2 entonces empezamos a realiza los cálculos
+#Si $num es mayor o igual a 2 entonces empezamos a realiza los cálculos
 else{
 	#Se inicializa la variable $div en 2 porque todo número primo sólo tiene 2 divisores
 	$div=2;
-	#Empezamos a dividir entre 3  
-	for($i=3; sqrt($num)>$i; $i+=2){
-		#print "Resto de $num/$i = ", ($num % $i), "\n";
+	#Ciclo for para realizar las divisiones respectivas
+	#Se inicializa la variable $i en 2 y su valor máximo será la raíz cuadrada del dividendo
+	#Cuando $i sea mayor que la raíz cuadrada de $num y $div sea mayor que 2 el bucle finalizará
+	for($i=2; ($i*$i<=$num && $div < 3); $i++){
+		#Si la división es exacta
 		unless($num % $i){
-			$div++; last;
+			#Entonces conseguimos otro divisor y aumentamos en 1 el valor de $div
+			$div++;
 		}
 	}
+	#Comprobamos el valor de $div y mostramos el mensaje final
 	$div == 2 ? print "\n$num Es Primo!" : print "\n$num No es Primo!";
 }
 
+#Llamamos a la función con el mensaje de despedida
 MenDespedida();	
