@@ -1,17 +1,17 @@
 #!/usr/bin/perl
 
 #######################################################
-#Nombre:    	006-primos.pl                         #
-#Fecha:     	05/03/2015                            #
-#Versión:   	0.1                                   #
+#Nombre:    	112-num-primo.pl                      #
+#Fecha:     	14/04/2015                            #
+#Versión:   	0.2                                   #
 #By:        	Christian Medina                      #
-#Modificado:    09/04/2015                            #
+#Modificado:    14/04/2015                            #
 #######################################################
 
 #######################################################
 #                     Descripción                     #
 #                                                     #
-# programa que indica si un numero es Primo o no      #
+# programa que indica si un número es Primo o no      #
 #######################################################
 
 use Scalar::Util 'looks_like_number';
