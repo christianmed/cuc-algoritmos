@@ -11,7 +11,7 @@
 #######################################################
 #                     Descripción                     #
 #                                                     #
-# Programa que indica cuatas cifras tiene N (se soli- #
+# Programa que indica cuantas cifras tiene N (se soli-#
 # cita el valor del N al usuario)                     #
 #######################################################
 
@@ -66,8 +66,6 @@ sub Error{
 ###############################################
 #####          CUERPO DEL PROGRAMA          ###
 ###############################################
-
-use Scalar::Util 'looks_like_number';
 
 #Llamamos a la función IntroNum() y el valor devuelto lo guardamos en la variable $num
 $num = IntroNum();

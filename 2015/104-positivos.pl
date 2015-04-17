@@ -34,16 +34,18 @@ sub MenDespedida{
     print "=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=\n\n";
 }
 
-#Definicion de variables
+###############################################
+#####          CUERPO DEL PROGRAMA          ###
+###############################################
 
-#Llamamos a la funcion con el mensaje de bienvenida
+#Llamamos a la función con el mensaje de bienvenida
 MenBienvenida();
 
 print "Indique el Valor de \"N\": ";
 chomp($N=<STDIN>);
 
 for($i=0; $i<$N; $i++){
-    #Llamamos a la funcion con el mensaje de bienvenida
+    #Llamamos a la función con el mensaje de bienvenida
     MenBienvenida();
     $j=$i+1;
     print "Valor de Numero $j: ";
@@ -52,10 +54,10 @@ for($i=0; $i<$N; $i++){
 
 @positivos = map {$_} grep {$_>0} @array;
 
-#Llamamos a la funcion con el mensaje de bienvenida
+#Llamamos a la función con el mensaje de bienvenida
 MenBienvenida();
 
-$"="\n";
+$" = "\n";
 
 print "POSITIVOS\n\n@positivos";
 

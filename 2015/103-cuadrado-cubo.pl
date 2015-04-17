@@ -42,8 +42,9 @@ sub Cubo{
     return((shift)**3);
 }
 
-#Definicion de variables
-
+###############################################
+#####          CUERPO DEL PROGRAMA          ###
+###############################################
 
 #Llamamos a la funcion con el mensaje de bienvenida
 MenBienvenida();
@@ -63,24 +64,14 @@ for($i=0; $i<$N; $i++){
 MenBienvenida();
 
 =begin
-$"="\n";
-
-#Usando Funciones para hacer los calculos
-@arrayCuadrados = map Cuadrado($_), @array; 
-print "CUADRADOS\n\n@arrayCuadrados";
-
-@arrayCubos = map Cubo($_), @array; 
-print "\n\nCUBOS\n\n@arrayCubos";
-
+$" = "\n";
 
 #Haciendo los calculos de una vez
 @arrayCuadrados = map {$_ ** 2} @array; 
-print "CUADRADOS\n\n@arrayCuadrados";
-
 @arrayCubos = map {$_ ** 3} @array; 
-print "\n\nCUBOS\n\n@arrayCubos";
 =cut
 
+#Usando Funciones para hacer los calculos
 @arrayCuadrados = map Cuadrado($_), @array; 
 @arrayCubos = map Cubo($_), @array; 
 

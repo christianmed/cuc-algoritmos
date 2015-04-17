@@ -67,8 +67,6 @@ sub Error{
 #####          CUERPO DEL PROGRAMA          ###
 ###############################################
 
-use Scalar::Util 'looks_like_number';
-
 #Llamamos a la función IntroNum() y el valor devuelto lo guardamos en la variable $num
 $num = IntroNum();
 
@@ -95,7 +93,7 @@ while($div <= $num){
 	#Si la división no es exacta comprobamos el valor del divisor
 	else{
 		#si es = 2 le le sumamos 1 y cuando su valor sea 3 empezaremos a sumarle 2 para que sea impar.
-		#Ellos porque el único factor primo par es el dos y no tiene sentido dividir por otro
+		#Ello porque el único factor primo par es el dos y no tiene sentido dividir por otro
 		#número par
 		$div = $div > 2 ? $div+2 : $div+1;
 	}

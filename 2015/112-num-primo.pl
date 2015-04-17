@@ -65,8 +65,6 @@ sub Error{
 #####          CUERPO DEL PROGRAMA          ###
 ###############################################
 
-use Scalar::Util 'looks_like_number';
-
 #Llamamos a la función IntroNum() y el valor devuelto lo guardamos en la variable $num
 $num = IntroNum();
 
